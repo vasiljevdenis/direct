@@ -3,9 +3,7 @@
 	include_once('lib/curl_query.php');
 	include_once('lib/simple_html_dom.php');
 
-	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		$rawData = file_get_contents('php://input');
-		$url = json_decode($rawData, true);
+		$url = json_decode($_POST["link"], true);
 	
 	$html = curl_get($url);
 	$dom = str_get_html($html);
@@ -21,8 +19,6 @@
 			  $description
 		);
 		echo json_encode($resp);		
-	}
-	
 	}
 	
 	?>
