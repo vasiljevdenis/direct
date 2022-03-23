@@ -42,13 +42,15 @@ window.onload = function () {
     }
 
     async function parseSite(url) {       
-          
+          let payLoad = {
+              link: url
+          }
           let response = await fetch('parser.php', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json;charset=utf-8'
             },
-            body: JSON.stringify(url)
+            body: JSON.stringify(payLoad)
           });
           
           let result = await response.json();
