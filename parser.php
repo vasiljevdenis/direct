@@ -20,8 +20,9 @@
 			 $title,
 			  $description
 		);
-		json_encode($resp, true);
+		json_encode($resp);
 	}
+	echo $resp;
 	}
 	
 	?>
