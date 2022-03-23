@@ -15,7 +15,12 @@
 	$images = $dom->find('img');
 	
 	foreach($images as $image){
-		echo $image->src, $title, $description;
+		$resp = array(
+			$image->src,
+			 $title,
+			  $description
+		);
+		json_encode($resp, true);
 	}
 	}
 	
