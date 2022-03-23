@@ -5,9 +5,9 @@
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$rawData = file_get_contents('php://input');
-		json_decode($rawData, true);
+		$url = json_decode($rawData, true);
 	
-	$html = curl_get($rawData);
+	$html = curl_get($url);
 	$dom = str_get_html($html);
 	
 	$title = $dom->find('title');
@@ -19,6 +19,6 @@
 	}
 	}
 	
-
+	?>
 	
 	
