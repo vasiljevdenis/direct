@@ -22,7 +22,6 @@ window.onload = function () {
         if (accordion.classList.contains('show')) collapse.toggle();
         if (i == 1) {
             const url = document.querySelector('#first input').value;
-            console.log(url);
             parseSite(url);
         }
         steps[i].classList.remove('off');
@@ -41,19 +40,10 @@ window.onload = function () {
         i++;
     }
 
-    async function parseSite(url) {       
-          let payLoad = {
-              link: url
-          }
-          let response = await fetch('parser.php', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify(payLoad)
-          });
-          
-          let result = await response.json();
-          console.log(result);
+    async function parseSite(url) {
+        axios.get(url).then(html => {
+            const page = html.data;            
+            console.log(page);        
+        });
     }
 }
