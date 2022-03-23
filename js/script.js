@@ -41,7 +41,7 @@ window.onload = function () {
         i++;
     }
 
-    function parseSite(url) {       
+    async function parseSite(url) {       
           
           let response = await fetch('parser.php', {
             method: 'POST',
