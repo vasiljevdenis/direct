@@ -3,7 +3,8 @@
 	include_once('lib/curl_query.php');
 	include_once('lib/simple_html_dom.php');
 
-		$url = json_decode($_POST["link"], true);
+		$link = json_decode($_POST["link"], true);
+		$url = strip_tags($link);
 	
 	$html = curl_get($url);
 	$dom = str_get_html($html);
@@ -18,7 +19,8 @@
 			 $title,
 			  $description
 		);
-		echo json_encode($resp);		
+		$response = json_encode($resp);
+		echo $response; 		
 	}
 	
 	?>
