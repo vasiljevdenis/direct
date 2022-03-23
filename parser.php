@@ -5,6 +5,7 @@
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$rawData = file_get_contents('php://input');
+		json_decode($rawData, true);
 	
 	$html = curl_get($rawData);
 	$dom = str_get_html($html);
@@ -14,7 +15,7 @@
 	$images = $dom->find('img');
 	
 	foreach($images as $image){
-		echo $image->href, $title, $description;
+		echo $image->src, $title, $description;
 	}
 	}
 	
